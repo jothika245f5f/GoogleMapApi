@@ -1,0 +1,42 @@
+<h1 #matDialo mat-dialog-title style="background-color: aqua;">Deals Edit</h1>
+<div mat-dialog-content>
+  <div class="container">
+    <form [formGroup]="update" class="form-horizontal" id="admi" >
+      <div class="form-group">
+        <label class="control-label">DealsName</label>
+        <div class="col-sm-10">
+         <input type="text" class="form-control  input-lg" formControlName="dealsName">
+        </div>
+      </div>
+       
+        
+   
+        <label class="control-label" >Lots</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control  input-lg" formControlName="lots">
+        </div>
+  
+        <label class="control-label  input-lg" >Price</label>
+        <div class="col-sm-10" >
+          <input type="text" class="form-control"  formControlName="price">
+        </div>
+        <label class="control-label  input-lg" >Status</label>
+        <div class="col-sm-10">
+          <mat-select  class="col-sm-10" formControlName="status" style="border: var(--bs-border-width) solid var(--bs-border-color);">
+           
+            <mat-option  *ngFor="let status of status" [value]="status.value">
+              {{status.viewValue}}
+            </mat-option>
+          </mat-select>
+        </div>
+     
+     
+  
+    </form>
+    <!-- <input type="text" value="{{counter}}"> -->
+  </div>
+</div>
+<div class="mat-button" mat-dialog-actions>
+  <button type="submit" (click)="updateData(update.value)" [disabled]="update.invalid" class="btn  btn-success">Update</button>
+  <button class="btn btn-info" mat-button (click)="cancel()">Cancel</button>
+</div>

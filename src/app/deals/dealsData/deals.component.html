@@ -1,0 +1,180 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link active" routerLink="/deals">All Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/deals/details"
+              >Market Details</a
+            >
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="#" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<br />
+<br />
+<br />
+<br />
+<H1 class="text">All Deals</H1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="form">
+        <button type="submit">Search</button>
+        <input
+          #filter
+          type="text"
+          [(ngModel)]="temp"
+          (keyup)="tableFilter(filter.value)"
+          placeholder="Search..."
+        />
+      </div>
+    </div>
+    <div class="col-6">
+      <button style="border: none;background: transparent;" (click)="filterTable()">
+        <i
+          class="bi bi-funnel icon-black"
+          style="font-size: xx-large; background-color: transparent"
+        ></i>
+      </button>
+      <button id="btn1" (click)="clearFilter()" style="display: none;background: transparent;">
+        <i class="bi bi-x-circle"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #callAPIDialog>
+  <h1 mat-dialog-title style="background-color: rgb(9, 90, 196);">Filter</h1>
+  <mat-dialog-content>
+    <mat-label>Deal Names : </mat-label>
+    <mat-form-field>
+      <mat-select #select placeholder="select dealName">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let val of selection" [value]="val">{{
+          val
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close  class="btn btn-secondary" style="margin-left: 12rem;width: 71px;margin-top: 2rem;">cancel</button>
+    <button mat-button class="btn btn-primary" style="margin-left: 1rem;width: 71px;margin-top: 2rem;" [mat-dialog-close]="select.value">
+      Filter
+    </button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #callAPIDialog2>
+  <h2 matDialogTitle style="background-color: rgb(9, 90, 196);">Delete</h2>
+  <mat-dialog-content>
+    <h3>Are you sure you want to delete this item?</h3>
+  </mat-dialog-content>
+  <mat-dialog-actions style="display: block;">
+      <button class="btn btn-secondary" style="margin-left: 12rem;width: 71px;" mat-button matDialogClose="no">No</button>
+      <button class="btn btn-primary" style="margin-left: 1rem;width: 71px;"  mat-button matDialogClose="yes">Yes</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<table id="deals" mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="DealsName">
+    <th mat-header-cell *matHeaderCellDef>Deal Name</th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="details">{{ element.dealsName }}</a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Lots">
+    <th mat-header-cell *matHeaderCellDef>Lots</th>
+    <td mat-cell *matCellDef="let element">{{ element.lots }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="LandPrice">
+    <th mat-header-cell *matHeaderCellDef  style="width: 10rem;">Land Acq Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td style="width: 20%; margin-left: 5px" mat-cell *matCellDef="let element">
+      <button
+        class="status"
+        [ngClass]="{'class1':element.status === 'Approved','class2':element.status === 'In Progress','class3':element.status === 'Rejected',}"
+      >
+        {{ element.status }}
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container class="actionbuttons" matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td style="width: 20%; margin-left: 5px" mat-cell *matCellDef="let element">
+      <Button
+        class="button"
+        (click)="editRow(element.id)"
+        style="height: 34px; width: 44px;background: transparent;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-pen-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"
+          />
+        </svg>
+      </Button>
+      <Button
+        class="button"
+        (click)="deleteDeal(element.id)"
+        style="height: 34px; width: 44px;background: transparent;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-trash-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
+          />
+        </svg>
+      </Button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="coloums"></tr>
+  <tr mat-row *matRowDef="let row; columns: coloums"></tr>
+</table>
+<mat-paginator [length]="dataLength" [pageSize]="0" hidePageSize>
+</mat-paginator>

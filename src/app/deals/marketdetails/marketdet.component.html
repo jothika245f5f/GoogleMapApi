@@ -1,0 +1,195 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link" routerLink="/deals">All Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/deals/details"
+              >Market Details</a
+            >
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="#" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="progress" style="height: 18px">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    style="width: 65%"
+    aria-valuenow="95"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
+</div>
+<div class="row">
+  <div class="column">
+    <aside id="info-block" style="margin-top: 42px">
+      <section class="file-marker">
+        <div>
+          <div class="box-title">Market Details</div>
+          <div class="box-contents">
+            <div id="audit-trail"></div>
+          </div>
+        </div>
+        <div class="explandaryText" style="margin-top: 1rem">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, esse
+          nulla inventore exercitationem at rerum dolor magnam ipsa sunt.
+          Mollitia ipsam recusandae numquam, optio assumenda rem inventore
+          ratione vero amet.
+        </div>
+
+        <div class="formSection" style="padding: 1.2rem">
+          <form [formGroup]="details" id="login" novalidate>
+            <div class="currency-wrap">
+              <label for="estClose"> Estimated first close</label>
+              :
+              <input
+                #est
+                type="text"
+                id="est"
+                class="inp"
+                maxlength="4"
+                formControlName="estClose"
+              />
+            </div>
+            <br />
+
+            <div class="currency-wrap">
+              <label for="exAsp">Expected ASP ($)</label>
+              :<span class="currency-code">$</span>
+              <input
+                #asp
+                type="text"
+                class="inp"
+                id="asp"
+                formControlName="exAsp"
+                required
+                (keyup)="onKey(asp)"
+                style="padding: 6px 19px"
+              />
+            </div>
+
+            <br />
+            <label>Lots</label>
+            :
+            <input
+              type="text"
+              class="inp"
+              id="lots"
+              formControlName="TotalLots"
+              required
+            />
+            <br />
+            <label>Define market Area</label>
+            :
+            <div #rat style="margin-left: 13rem; margin-top: -27px">
+              <div *ngFor="let radio of radioArr">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="{{ radio.value }}"
+                  checked="{{ radio.checked }}"
+                  (change)="onRadioChange($event)"
+                />
+                <label>{{ radio.label }}</label>
+              </div>
+            </div>
+          </form>
+
+          <div id="formMain" class="tableData">
+            <table>
+              <tr>
+                <td>
+                  <input
+                    id="zip1"
+                    name="zip1"
+                    autocomplete="off"
+                    style="border: none"
+                    placeholder=""
+                  />
+                </td>
+                <td>
+                  <button id="button1" style="width: 55px; border: none">
+                    <i class="bi bi-trash" (click)="deleteRow('zip1')"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    id="zip2"
+                    name="zip2"
+                    autocomplete="off"
+                    style="border: none"
+                    placeholder=""
+                  />
+                </td>
+                <td>
+                  <button id="button2" style="width: 55px; border: none">
+                    <i class="bi bi-trash" (click)="deleteRow('zip2')"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    id="zip3"
+                    name="zip3"
+                    autocomplete="off"
+                    placeholder=""
+                    style="border: none"
+                  />
+                </td>
+                <td>
+                  <button id="button3" style="width: 55px; border: none">
+                    <i class="bi bi-trash" (click)="deleteRow('zip3')"></i>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <button
+          class="btn btn-secondary backButton"
+          onClick="history.go(-1); return false;"
+        >
+          &lt; Back
+        </button>
+        <button
+          class="btn btn-primary nextButton"
+          (click)="submitData(details.value)"
+        >
+          Next &gt;
+        </button>
+        <div></div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="column">
+    <div class="gmap" style="margin-top: 41px">
+      <div aria-disabled="selectedGender==byZip" #mapRef id="maps"></div>
+    </div>
+  </div>
+</div>

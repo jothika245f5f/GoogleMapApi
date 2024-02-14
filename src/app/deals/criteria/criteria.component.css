@@ -1,0 +1,65 @@
+table tr:nth-child(odd) {
+  background-color: #a9a9a93d;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+#criteria th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffffff !important;
+  font-size: large;
+}
+th {
+  background-color: lightgrey;
+}
+
+table,
+th,
+td {
+  border-right: 2px solid rgb(10, 3, 3);
+  padding: 15px;
+  margin-left: 25rem;
+  margin-top: 4rem;
+}
+
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+table {
+  width: 50%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+  border-collapse: collapse;
+  border: 4px solid rgb(12 8 8);
+}
+.passbutton {
+  width: fit-content;
+  background-color:green;
+  color: white;
+}
+.failbutton {
+  width: fit-content;
+  background-color: red;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  table,
+th,
+td {
+  padding: 2px;
+  margin-left: 5rem;
+  margin-top: 8rem;
+  font-size: smaller;
+  font-weight: 100;
+}
+table {
+ 
+  min-width: 278px;
+}
+}

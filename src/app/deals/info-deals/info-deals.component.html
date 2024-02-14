@@ -1,0 +1,281 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link" routerLink="/deals">All Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/deals/details"
+              >Market Details</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/deals/details/info"
+              >Development Info</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [class.disabled]="navigation_check == false"
+              routerLink="/deals/criteria"
+              >Criteria</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [class.disabled]="navigation_check == false"
+              routerLink="/deals/metrics"
+              >Test Mertics</a
+            >
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="#" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="split left">
+  <div class="gmap">
+    <div #mapRef id="maps"></div>
+  </div>
+
+  <div class="spilt2 left2">
+    <aside id="info-block">
+      <section class="file-marker">
+        <div>
+          <div class="box-title">Development cost</div>
+          <div class="box-contents">
+            <div style="margin: 17px">
+              <div class="titleWrap">
+                <label class="propertyTitle">Acquisition price</label>
+                <label class="propertyTitle">Development cost</label>
+                <label class="propertyTitle">Total land spend</label>
+              </div>
+              <div class="valueWrap">
+                <label class="propertyValue">: $ 67,898 </label>
+                <label class="propertyValue">: $ 67,898 </label>
+                <label class="propertyValue">: $ 67,898,78</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <div class="spilt2 right2">
+    <aside id="info-block2">
+      <section class="file-marker">
+        <div>
+          <div class="box-title">Market Details</div>
+          <div class="box-contents">
+            <div style="margin: 17px">
+              <div class="titleWrap">
+                <label class="propertyTitle">Estimated first close </label>
+                <label class="propertyTitle"> Expected ASP </label>
+                <label class="propertyTitle"> #Lots </label>
+              </div>
+              <div class="valueWrap">
+                <label class="propertyValue">: {{ dealsData.estClose }}</label>
+                <label class="propertyValue" *ngIf="dealsData.exAsp !='' ">:$ {{ dealsData.exAsp }}</label>
+                <label class="propertyValue">: {{ dealsData.TotalLots }}</label>
+              </div>
+              <div style="display: inline-flex">
+                <div>
+                  <label class="marker" style="margin-left: 1px">
+                    Marker area </label
+                  >
+                  <span style="margin-left: 64px;"> : </span>
+                </div>
+               
+                <label class="markerValue" style="margin-left: 3px;" >
+                  <li> {{dealsData.zip1 }}</li>
+                  <li> {{ dealsData.zip2 }}</li>
+                  <li> {{ dealsData.zip3 }}</li>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="verLine"></div>
+  <div class="centered">
+    <div class="card1">
+      <ul id="progressbar" class="text-center">
+        <li
+          [ngClass]="{
+            active: progressData.spendAlloc == 'pass',
+            reject: progressData.spendAlloc == 'fail',
+            pending: progressData.spendAlloc == 'notYet'
+          }"
+          class="step0"
+        ></li>
+        <li
+          [ngClass]="{
+            active: progressData.resilience == 'pass',
+            reject: progressData.resilience == 'fail',
+            pending: progressData.resilience == 'notYet'
+          }"
+          class="step0"
+        ></li>
+        <li
+          [ngClass]="{
+            active: progressData.potential == 'pass',
+            reject: progressData.potential == 'fail',
+            pending: progressData.potential == 'notYet'
+          }"
+          class="step0"
+        ></li>
+        <li
+          [ngClass]="{
+            active: progressData.lar >= 5 && progressData.lar <= 10,
+            reject: progressData.lar < 5,
+            pending: progressData.lar == 'notYet'
+          }"
+          class="step0"
+        ></li>
+        <li
+          [ngClass]="{
+            active: progressData.performence == 'pass',
+            reject: progressData.performence == 'fail',
+            pending: progressData.performence == 'notYet'
+          }"
+          class="step0"
+        ></li>
+      </ul>
+      <div class="mb-5 prop">
+        <a
+          [ngClass]="{ disableLink: progressData.spendAlloc == 'notYet' }"
+          routerLink="metrics"
+          class="link"
+          >Division Land Goals and spend Allocation</a
+        >
+        <button
+          [ngClass]="{
+            passbutton: progressData.spendAlloc == 'pass',
+            failbutton: progressData.spendAlloc == 'fail',
+            pendingbutton: progressData.spendAlloc == 'notYet'
+          }"
+        >
+          {{
+            progressData.spendAlloc == "pass"
+              ? "Passed"
+              : progressData.spendAlloc == "fail"
+              ? "Failed"
+              : "Not Available"
+          }}
+        </button>
+      </div>
+      <div class="mb-5 prop">
+        <a
+          [ngClass]="{ disableLink: progressData.resilience == 'notYet' }"
+          class="link"
+          >Submarket Resilience</a
+        >
+        <button
+          [ngClass]="{
+            passbutton: progressData.resilience == 'pass',
+            failbutton: progressData.resilience == 'fail',
+            pendingbutton: progressData.resilience == 'notYet'
+          }"
+        >
+          {{
+            progressData.resilience == "pass"
+              ? "RESILIENT"
+              : progressData.resilience == "fail"
+              ? "Failed"
+              : "Not Available"
+          }}
+        </button>
+      </div>
+      <div class="mb-5 prop">
+        <a
+          [ngClass]="{ disableLink: progressData.potential == 'notYet' }"
+          class="link"
+          >Triangle of Potential Resilience</a
+        >
+        <button
+          [ngClass]="{
+            passbutton: progressData.potential == 'pass',
+            failbutton: progressData.potential == 'fail',
+            pendingbutton: progressData.potential == 'notYet'
+          }"
+        >
+          {{
+            progressData.potential == "pass"
+              ? "VERY LOW RISK"
+              : progressData.potential == "fail"
+              ? "HIGH RISK"
+              : "Not Available"
+          }}
+        </button>
+      </div>
+      <div class="mb-5 prop">
+        <a
+          [ngClass]="{ disableLink: progressData.lar == 'notYet' }"
+          class="link"
+          routerLink="criteria"
+          >LAR Creteria</a
+        >
+        <button
+          [ngClass]="{
+            passbutton: progressData.lar >= 5 && progressData.lar <= 10,
+            failbutton: progressData.lar < 5,
+            pendingbutton: progressData.lar == 'notYet'
+          }"
+        >
+          {{
+            progressData.lar >= 1 && progressData.lar <= 10
+              ? progressData.lar + "/10"
+              : "Not Available"
+          }}
+        </button>
+      </div>
+      <div class="mb-5 prop">
+        <a
+          [ngClass]="{ disableLink: progressData.performence == 'notYet' }"
+          class="link"
+          >Financial Performance
+        </a>
+        <button
+          [ngClass]="{
+            passbutton: progressData.performence == 'pass',
+            failbutton: progressData.performence == 'fail',
+            pendingbutton: progressData.performence == 'notYet'
+          }"
+        >
+          {{
+            progressData.performence == "pass"
+              ? "Passed"
+              : progressData.performence == "fail"
+              ? "Failed"
+              : "Not Available"
+          }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

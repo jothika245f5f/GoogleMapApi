@@ -1,0 +1,52 @@
+.block {
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    height: 400px;
+    display: flex;
+    border: 2px solid rgb(10, 8, 10);
+    border-radius: 10px;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .inp {
+    background-color: antiquewhite;
+    padding: 5px 80px;
+    margin: 10px;
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+  }
+  h2 {
+    color: rgb(189, 89, 149);
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 83vh;
+  }
+  button {
+    padding: 10px 10px;
+    background-color: rgb(125, 158, 230);
+    margin: 10px;
+  
+    font-weight: 600;
+    border: none;
+    width: 100px;
+  }
+  button:disabled {
+    background-color: rgb(220, 213, 220);
+    opacity: 0.8;
+    color: white;
+  }
+  

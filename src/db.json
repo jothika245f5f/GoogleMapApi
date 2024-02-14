@@ -1,0 +1,39 @@
+{
+  "deals": [
+    {
+      "dealsName": "Jones Ferry Rd",
+      "lots": "12",
+      "price": "$1 800 000",
+      "status": "Approved",
+      "id": 1
+    },
+    {
+      "dealsName": "MLK Bivd",
+      "lots": "10",
+      "price": "$1 900 000",
+      "status": "Rejected",
+      "id": 2
+    },
+    {
+      "dealsName": "Smith Level Rd",
+      "lots": "17",
+      "price": "$3 500 000",
+      "status": "Approved",
+      "id": 4
+    },
+    {
+      "dealsName": "Jones Ferry Rd",
+      "lots": "11",
+      "price": "$1 800 000",
+      "status": "In Progress",
+      "id": 5
+    },
+    {
+      "dealsName": "MLK Bivd",
+      "lots": "10",
+      "price": "$ 1 900 000",
+      "status": "Rejected",
+      "id": 6
+    }
+  ]
+}

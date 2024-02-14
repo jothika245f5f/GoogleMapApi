@@ -1,0 +1,14 @@
+label{
+    padding: 8px;
+    color: black;
+    font-weight: 500;
+}
+.mat-button{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row-reverse;
+}
+button{
+    margin: 12px;
+}

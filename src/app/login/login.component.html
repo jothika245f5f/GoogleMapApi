@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="block">
+    <form [formGroup]="login" id="login" novalidate>
+      <h2>LogIn</h2>
+      <h6 style="color: red">*If you not register please signup</h6>
+      <input
+        type="text"
+        class="inp"
+        formControlName="name"
+        placeholder="Enter Name"
+        required
+      />
+
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert"
+        style="margin: 0; padding: 0"
+      >
+        <div
+          *ngIf="name.errors?.['required']"
+          style="color: red; margin-right: 15rem; margin-top: -1rem"
+        >
+          <h6>*Name is required.</h6>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        placeholder="Enter Password"
+        class="inp"
+        formControlName="password"
+        required
+      />
+
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert"
+        style="margin: 0; padding: 0"
+      >
+        <div
+          *ngIf="password.errors?.['required']"
+          style="color: red; margin-right: 14rem; margin-top: -1rem"
+        >
+          <h6>*Password is required.</h6>
+        </div>
+      </div>
+
+      <button
+        class="button"
+        (click)="loginSubmit(login.value)"
+        [disabled]="login.invalid"
+      >
+        Login
+      </button>
+
+      <!-- <button class="button"  (click)="signIn()"  >SingIn </button> -->
+    </form>
+  </div>
+</div>

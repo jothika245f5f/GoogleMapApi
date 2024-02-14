@@ -1,0 +1,122 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link" routerLink="/deals">All Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/deals/details"
+              >Market Details</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals/info">Development Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals/criteria">Criteria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/deals/metrics">Test Mertics</a>
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="#" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div>
+  <h2>Income to Home Price</h2>
+
+  <table #table1>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Risk Rating</th>
+    </tr>
+    <tr>
+      <td>Med.Household Income of Submarket</td>
+      <td>$104,517</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Med.Home Price Affordability of Households within the Submarket</td>
+      <td>$373,273</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Home Price per CMA</td>
+      <td>$376,924</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>% of Households that can Afford ASP</td>
+      <td>44%</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td># of Households that can Afford ASP</td>
+      <td>27,340</td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<h2>Home Price to Land Price</h2>
+<table #table2>
+  <tr>
+    <th>Metric</th>
+    <th>Value</th>
+    <th>Risk Rating</th>
+  </tr>
+  <tr>
+    <td>Product Type</td>
+    <td>SF</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Lot Cost Average as % of ASP</td>
+    <td>26%</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>% of ASP</td>
+    <td>21%</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Derived Lot Cost from Avarage Lot Cost as % of ASP</td>
+    <td>$99</td>
+    <td>226</td>
+  </tr>
+  <tr>
+    <td>Land Dev/lot from Pro Forma</td>
+    <td>$15</td>
+    <td>406</td>
+  </tr>
+  <tr>
+    <td>Derived Land Purchase Price</td>
+    <td>$83</td>
+    <td>820</td>
+  </tr>
+  <tr>
+    <td>Land Purchase Price from Pro Forma</td>
+    <td>$65</td>
+    <td>121</td>
+  </tr>
+</table>

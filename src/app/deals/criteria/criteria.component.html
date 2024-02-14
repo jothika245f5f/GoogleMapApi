@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link" routerLink="/deals">All Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/deals/details"
+              >Market Details</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals/info">Development Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/deals/criteria">Criteria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals/metrics">Test Mertics</a>
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="#" class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<table #criteria>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Criteria</th>
+      <th scope="col">This Deal</th>
+      <th scope="col">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">1</td>
+      <td>Each product line 150 lots</td>
+      <td>155 lots</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>ASP FY22 ASP</td>
+      <td>Y</td>
+      <td><button class="passbutton">PASSED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">3</td>
+      <td>House closing within the next 12 months</td>
+      <td>11 months</td>
+      <td><button class="passbutton">PASSED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">4</td>
+      <td>Triangle of Potential output is Low Risk or very Low Risk</td>
+      <td>Medium Risk</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">5</td>
+      <td>Existing Product</td>
+      <td>Y</td>
+      <td><button class="passbutton">PASSED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">6</td>
+      <td>Existing Submarket</td>
+      <td>N</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">7</td>
+      <td>Gatherings project</td>
+      <td>N</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">8</td>
+      <td>Rolling Option</td>
+      <td>N</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">9</td>
+      <td>Total Land ACQ Spend (YEAR 1) $7.5 million</td>
+      <td>$7 million</td>
+      <td><button class="passbutton">PASSED</button></td>
+    </tr>
+    <tr>
+      <td scope="row">10</td>
+      <td>Total Land Dev Spend $7.5 million</td>
+      <td>$8 million</td>
+      <td><button class="failbutton">FAILED</button></td>
+    </tr>
+    <tr>
+      <td scope="row"></td>
+      <td>5/10 CRITERIA</td>
+      <td>4/10</td>
+      <td>
+        <button class="failbutton" style="background-color: black">
+          FAILED
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

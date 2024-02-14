@@ -1,0 +1,214 @@
+@import "~font-awesome/css/font-awesome.css";
+
+#deals {
+  width: 75%;
+  margin-left: 9rem;
+}
+.text {
+  margin-left: 9rem;
+  font-size: larger;
+  color: #0a0a0a;
+  font-family: sans-serif;
+}
+i {
+  background: transparent !important;
+  background-image: none !important;
+}
+.col {
+  flex: 0 0 0%;
+}
+.col-6 {
+  flex: 0 0 auto;
+  width: 19%;
+}
+/* #deals td,#deals th{
+ 
+    padding: 8px;
+} */
+/* #deals tr:nth-child(even){background-color: #dee1e1;} */
+
+/* #stData tr:hover{background-color: rgb(94, 100, 104);} */
+table tr:nth-child(odd) {
+  background-color: #6a66661c;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+#deals th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: black;
+  font-size: large;
+}
+table,
+th,
+td {
+  border: 2px solid rgb(9, 5, 5);
+  padding: 5px;
+}
+
+::ng-deep .mat-select-content {
+  width: 200px;
+  background-color: red;
+  font-size: 10px;
+}
+
+.mat {
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+
+.closebutton {
+  border: 2px solid;
+  padding: 2px;
+  box-shadow: 3px 4px #0f0e0e;
+  margin-left: 2rem;
+  width: 4rem;
+  height: 28px;
+  text-align: center;
+  font-size: medium;
+  font-family: sans-serif;
+}
+.nextbutton {
+  border: 2px solid;
+  padding: 2px;
+  box-shadow: 3px 4px #0f0e0e;
+  width: 4rem;
+  height: 28px;
+  font-size: medium;
+  font-family: sans-serif;
+  float: right;
+  margin-right: 37px;
+}
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+  border-collapse: collapse;
+  border: 4px solid rgb(12 8 8);
+}
+
+.button {
+  margin-left: 44px;
+}
+.status {
+  height: 33px;
+  width: 9rem;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #f7faf7;
+  margin-left: 31px;
+}
+.class1 {
+  background-color: green;
+}
+.class2 {
+  background-color: gray;
+}
+.class3 {
+  background-color: red;
+}
+/* styling search bar */
+.form {
+  color: #0a0a0a;
+  display: flex;
+  padding: 3px;
+  border: 3px solid currentColor;
+  border-radius: 50px;
+  margin-left: 6rem;
+  margin-bottom: 3rem;
+}
+input[type="search"] {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+}
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+}
+input[type="search"]::placeholder {
+  color: #bbb;
+  border: none;
+}
+button[type="submit"] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.mat-mdc-paginator {
+  width: 23% !important;
+}
+::ng-deep .custom-modalbox {
+  height: 39%;
+  width: 27%;
+}
+::ng-deep .custom-modalbox2 {
+  height: 28%;
+  width: 28%;
+}
+
+@media only screen and (max-width: 768px) {
+  #deals {
+    margin-left: 1rem;
+  }
+  #deals th {
+    font-size: small;
+  }
+  table th,
+  tr {
+    font-size: smaller;
+  }
+  .button {
+    margin-left: -8px;
+  }
+
+  ::ng-deep .custom-modalbox {
+    width: 19rem;
+    height: 30%;
+  }
+  ::ng-deep .custom-modalbox2 {
+    width: 19rem;
+    height: 30%;
+  }
+  .status {
+    height: 32px;
+    width: 6rem;
+    font-size: 13px;
+    margin-left: 8px;
+  }
+   .btn-primary{
+    margin-left: 6rem !important;
+    width: 71px;
+    margin-top: -3rem !important;
+  }
+}

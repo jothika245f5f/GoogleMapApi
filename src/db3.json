@@ -1,0 +1,11 @@
+{
+    "progress":[{
+        "spendAlloc":"fail",
+        "resilience":"fail",
+        "potential":"pass",
+        "lar":4,
+        "performence":"notYet"
+    }
+        
+    ]
+}

@@ -1,0 +1,141 @@
+
+#info-block section {
+  border: 3px solid black;
+  border-radius: 5px;
+  height: 38rem;
+}
+
+.file-marker > div {
+  padding: 3px 22px;
+  margin-top: -0.8em;
+}
+
+.box-title {
+  background: white none repeat scroll 0 0;
+  display: inline-block;
+  padding: 0 2px;
+  margin-left: 1em;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+#maps{
+  height: 38rem;
+  width: 673px;
+
+}
+
+form {
+  color: #0a0a0a;
+  display: block;
+}
+.currency-wrap{
+  position: relative;
+  margin-top: 1rem;
+  margin-left: 0rem;
+}
+
+.currency-code{
+  position:absolute;
+  margin-left: 11rem;
+  left:34px;
+  top:21px;
+}
+input[type="text"] {
+  border: 4px solid;
+  background: transparent;
+  margin: 11px;
+  padding: 6px 13px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+label {
+  width: 11rem;
+  padding: 6px;
+}
+table td{
+    border: 2px solid;
+}
+.tableData{
+    margin-left: 10rem;
+    margin-top: 1rem;
+}
+.progress-bar{
+    background-color: #6c757d5c;
+}
+.backButton{
+    border: 2px solid;
+    padding: 2px;
+    margin-left: 2rem;
+    width: 5rem;
+    height: 34px;
+    text-align: center;
+    font-size: medium;
+    font-family: sans-serif;
+}
+.nextButton{
+    border: 2px solid;
+    padding: 2px;
+    width: 5rem;
+    height: 34px;
+    font-size: medium;
+    font-family: sans-serif;
+    float: right;
+    margin-right: 37px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+    width: 45%;
+    padding: 10px;
+    margin-left: 48px;
+}
+.row {
+  --bs-gutter-x: -0.5rem;}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .column{
+    height: fit-content;
+  }
+  label{
+    width: 9rem;
+  }
+  #info-block section{
+    width: 30rem;
+    height: 45rem;
+    margin-left: -36px;
+
+  }
+  .currency-code{
+    margin-left: -1rem;
+    left: 38px;
+    top: 54px;
+  }
+  .tableData{
+    margin-left: 2rem;
+  }
+  .formSection{
+    padding: 0;
+  }
+ #maps{
+  height: 13rem;
+    width: 30rem;
+    margin-left: -37px;
+ }
+}
